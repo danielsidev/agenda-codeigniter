@@ -35,7 +35,7 @@ class Agenda extends CI_Controller {
       $this->load->view('meus_contatos', $dados);
    }
 /**
- *Método de controle para identificar se será feito ua exclusão ou
+ *Método de controle para identificar se será feito uma exclusão ou
  *o carregamento dos dados para gerar uma edição.
  */
    public function controle($acao, $id)
@@ -52,21 +52,21 @@ class Agenda extends CI_Controller {
         $this->load->model('agenda_model');
 	
 	if($acao=="excluir"){
-	/**
+	    /**
          *Chama o método responsável pela exclusão através do objeto criado em $this->agenda_model
          **/
 	$this->agenda_model->excluirContato($id);
-	/**
+	    /**
          *Redireciona para o controlador index( raiz do projeto: agenda/)
          **/		
         redirect('agenda', 'refresh');
 
 	}else{
-	/**
+	    /**
          *Recupera os dados do banco pelo id
          **/
 	$editar =$this->agenda_model->listaContatoId($id);
-	/**
+	    /**
          *Monta um map/hashmap de dados com os valores retornados
          **/
 	$contato["id"]        = $id;
@@ -77,11 +77,11 @@ class Agenda extends CI_Controller {
 	$contato["celular"]   = $editar->row()->celular;
 	$contato["email"]     = $editar->row()->email;
 	$contato["titulo"]     = "Editar";
-	/**
+	    /**
          *Carrega a library de form para criar forms html
          **/
         $this->load->helper('form');
-	/**
+	    /**
          *Carrega a view(html) do formulário enviado os dados para serem setados no form
          **/
 	$this->load->view("form-contato", $contato);
@@ -90,7 +90,7 @@ class Agenda extends CI_Controller {
 
    }
 /**
- *Método para exibir o form e cadastrar um novo contato
+ *Método para exibir o form de cadastrar um novo contato
  **/
     public function novoContato()
     {
@@ -99,7 +99,7 @@ class Agenda extends CI_Controller {
         *Carrega as opções para criar urls, links(href/anchor) etc
         **/       
         $this->load->helper('url');
-	/**
+	    /**
          *Carrega a view(html) do formulário enviado os dados para serem setados no form
          **/
         $this->load->helper('form');

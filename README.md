@@ -7,6 +7,8 @@ Simple example from agenda with code igniter
 
 2. /application/config/criar-tabela-agenda-contato.php
 
+3. /application/config/database.php -> insert the user and password 
+
 #PhpDoc
 
 1. Documentation in /documentacao
