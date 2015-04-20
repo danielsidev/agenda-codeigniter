@@ -30,7 +30,7 @@ class Agenda extends CI_Controller {
       $dados['contatos'] = $this->agenda_model->listaContatos();
       /**
        *Carrega a view(html) da lista de contatos e
-       *envia os a para serem impressos na tela
+       *envia-os para serem impressos na tela
       **/
       $this->load->view('meus_contatos', $dados);
    }
@@ -46,8 +46,8 @@ class Agenda extends CI_Controller {
         $this->load->helper('url');
         /**
          *Carrega o modelo passado como parâmetro, instancia a classe
-	 *criando uma propriedade de mesmo nome da classe:
-	 *(class = agenda_model -> variável = private $agenda_model)
+	     *criando uma propriedade de mesmo nome da classe:
+	     *(class = agenda_model -> variável = private $agenda_model)
          **/
         $this->load->model('agenda_model');
 	
@@ -82,7 +82,7 @@ class Agenda extends CI_Controller {
          **/
         $this->load->helper('form');
 	    /**
-         *Carrega a view(html) do formulário enviado os dados para serem setados no form
+         *Carrega a view(html) do formulário enviando os dados para serem setados no form
          **/
 	$this->load->view("form-contato", $contato);
 
