@@ -2,6 +2,8 @@
 /**
  *@author Daniel Siqueira
  *Developed by Daniel Mello Siqueira: http://danielsiqueira.net
+ */
+/**
  *Classe de controle para as operações de crud dos contatos.
  */
 class Agenda extends CI_Controller {
