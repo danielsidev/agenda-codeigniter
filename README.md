@@ -3,5 +3,5 @@ Simple example from agenda with code igniter
 
 #Check the files:
 
-*application/config/config-host-server.php
-*criar-tabela-agenda-contato.php
++application/config/config-host-server.php
++criar-tabela-agenda-contato.php
