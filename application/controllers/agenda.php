@@ -128,12 +128,13 @@ class Agenda extends CI_Controller {
       **/
       $result = $this->agenda_model->salvar_dados();
 
-      if($result){
+      if($result[0]){
      /**
       *Carrega a view(html) com a tela de sucesso
       **/               
-	$this->load->view("sucesso");	
-
+	//$this->load->view("sucesso");	
+          echo json_encode($result[1]);
+          
       }else{
      /**
       *Carrega a view(html) com a tela de erro

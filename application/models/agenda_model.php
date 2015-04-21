@@ -72,22 +72,16 @@ class agenda_model extends CI_Model{
 
     if($id!=0){
       $this->db->where("id", $id);
-      $query = $this->db->update("agenda_contato",$dados);
+      $query[0] = $this->db->update("agenda_contato",$dados);
+      $query[1] = $dados;
     }else{
 
-      $query = $this->db->insert("agenda_contato",$dados);
+      $query[0] = $this->db->insert("agenda_contato",$dados);
+      $query[1] = $dados;
 
     }
    
-   if($query){
-
-    return true;
-
-   }else{
-
-    return false;
-
-   }
+   return $query;
 
  }
 

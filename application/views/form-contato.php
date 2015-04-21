@@ -90,6 +90,21 @@
     }
     
      hr{ width: 0%; opacity: 0;}
+     
+     #feedback{
+         box-shadow: 0px 0px 10px #ccc;
+         border-radius: 3px;
+         padding: 5px;
+         width: 200px;
+         height: 100px;
+         position: absolute;
+         margin: 20px auto;
+         background: #fff;
+         top: 20%;
+         left: 50%;
+         margin-left: -100px;
+         display: none;
+     }
 	</style>
 </head>
 <body>
@@ -99,8 +114,8 @@
 
 	<div id="body">
 
-<?=form_open('agenda/salvar') ?>
-
+<?php //form_open('') ?>
+<form action="" method="post" accept-charset="utf-8" id="formContato">
 <input type="hidden" name="id" id="id" value="<?=isset($id)?$id:0 ?>"/>
 Nome:<br/>
 <input type="text" name="nome" id="nome" value="<?=isset($nome)?$nome:'' ?>" /><hr/>
@@ -124,15 +139,61 @@ Celular:<br/>
 E-mail:<br/>
 <input type="email" name="email" id="email" value="<?=isset($email)?$email:'' ?>" /><hr/>
 
-<input type="submit" name="cadastrar" id="cadastrar" value="<?=$titulo ?>" /><br/>
-
-<?=form_close() ?>
+<input type="button" onclick='novoContato();' name="cadastrar" id="cadastrar" value="<?=$titulo ?>" /><br/>
+</form>
+<?php //form_close() ?>
 <hr/>
 
 
 <?=anchor("agenda/", "<< Voltar") ?>
 <hr/>
-	</div>
-
+    </div></div>
+    <div id="feedback"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    var novoContato= function(){
+        
+     var validou = validar(); 
+     
+     if(validou){
+         
+      var url      = "http://agenda-codeigniter/agenda/salvar";
+      var formData = $("#formContato").serialize();           
+            //console.log(formData);
+        $('#feedback').html('Cadastrando novo contato... Por favor, Aguarde.');
+        $("#feedback").fadeIn();
+        $.ajax({
+	     url :  url,
+	     type: "POST",
+         data : formData,
+	      success: function(data, textStatus, jqXHR)
+	      {	    	
+                window.location.href='http://agenda-codeigniter/agenda/';
+                console.log(data);       
+	      },
+	      error: function (jqXHR, textStatus, errorThrown)
+	      {
+	    	console.log("ERRO!!! Não conseguiu!");
+	    	console.log(textStatus);                
+	      }
+	    }); 
+     }else{
+         alert("Prencha todos os campos!");
+     }
+    };
+    
+    var validar = function(){
+      var camposText = $("input[type=text]").val();  
+      var camposSelect = $("select").val();  
+      var camposEmail = $("input[type=email]").val();  
+      
+      if(camposText==='' || camposSelect==='' || camposEmail===''){
+          return false;
+      }else{
+          return true;
+      }
+    };
+    </script>
 </body>
 </html>
