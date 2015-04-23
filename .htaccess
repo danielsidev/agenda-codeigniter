@@ -1,3 +1,4 @@
 RewriteEngine on 
-RewriteCond $1 !^(index.php|css|js|images|robots.txt) 
+#RewriteRule ^(.*)$ /nomeDoProjeto/index.php/$1 [L] ## Para http://localhost/nomeDoProjeto/index.php
+RewriteCond $1 !^(index.php|css|js|images|assets|img|robots.txt) 
 RewriteRule ^(.*)$ /index.php/$1 [L]

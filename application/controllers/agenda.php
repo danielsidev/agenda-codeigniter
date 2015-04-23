@@ -8,6 +8,10 @@
  */
 class Agenda extends CI_Controller {
 
+ public function __construct()
+ {
+  parent::__construct();
+ }
 /**
  *Método índice/raiz(/index.php) do projeto que retorna a lista de contatos
  */
@@ -80,7 +84,7 @@ class Agenda extends CI_Controller {
 	    /**
          *Carrega a library de form para criar forms html
          **/
-        $this->load->helper('form');
+    $this->load->helper('form');
 	    /**
          *Carrega a view(html) do formulário enviando os dados para serem setados no form
          **/

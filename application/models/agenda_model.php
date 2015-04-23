@@ -44,7 +44,7 @@ class agenda_model extends CI_Model{
         try{
 
         $this->db->where("id", $id);
-	$this->db->delete("agenda_contato");
+	    $this->db->delete("agenda_contato");
         return true;
 
         }catch(Exception $e){
