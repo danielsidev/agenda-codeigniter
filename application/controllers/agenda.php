@@ -113,6 +113,18 @@ class Agenda extends CI_Controller {
  **/
     public function salvar()
     {
+        /**
+          *Monta o objeto para ser inserido,
+          *recuperando os campos do formulário 
+        **/
+        $dados = array(
+            "nome"      =>$this->input->post("nome"),
+            "sobrenome" =>$this->input->post("sobrenome"),
+            "genero"    =>$this->input->post("genero"),
+            "telefone"  =>$this->input->post("telefone"),
+            "celular"   =>$this->input->post("celular"),
+            "email"     =>$this->input->post("email")
+            );
      /**
        *Carrega as opções para criar urls, links(href/anchor) etc
       **/      
@@ -126,7 +138,7 @@ class Agenda extends CI_Controller {
      /**
       *Chama o método responsável por cadastrar/editar os dados
       **/
-      $result = $this->agenda_model->salvar_dados();
+      $result = $this->agenda_model->salvar_dados($dados);
 
       if($result[0]){
      /**

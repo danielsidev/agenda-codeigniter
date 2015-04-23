@@ -57,16 +57,8 @@ class agenda_model extends CI_Model{
 /**
  *Método responsável por cadastrar e editar o contato mediante a passagem de id >=0
  */
- public function salvar_dados()
- {
-   $dados = array(
-            "nome"      =>$this->input->post("nome"),
-            "sobrenome" =>$this->input->post("sobrenome"),
-            "genero"    =>$this->input->post("genero"),
-            "telefone"  =>$this->input->post("telefone"),
-            "celular"   =>$this->input->post("celular"),
-            "email"     =>$this->input->post("email")
-            );
+ public function salvar_dados($dados)
+ {  
 
    $id = $this->input->post("id");
 
