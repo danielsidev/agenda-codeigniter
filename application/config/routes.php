@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "agenda";
+$route['default_controller'] = "login";
 $route['404_override'] = '';
 
 

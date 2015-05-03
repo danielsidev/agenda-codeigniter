@@ -6,6 +6,7 @@
 /**
  *Classe de controle para as operações de crud dos contatos.
  */
+session_start();
 class Agenda extends CI_Controller {
 
  public function __construct()
@@ -15,8 +16,17 @@ class Agenda extends CI_Controller {
 /**
  *Método índice/raiz(/index.php) do projeto que retorna a lista de contatos
  */
+ 
+
    public function index()
    {	
+       
+     if($this->session->userdata('logged_in'))
+     {
+     $session_data = $this->session->userdata('logged_in');
+     $dados['login'] = $session_data['usuario'];
+     
+
      /**
       *Carrega as opções para criar urls, links(href/anchor) etc
       **/       
@@ -37,7 +47,20 @@ class Agenda extends CI_Controller {
        *envia-os para serem impressos na tela
       **/
       $this->load->view('meus_contatos', $dados);
+      }
+      else
+      {
+     //Se não tiver sessão redireciona para o login
+     redirect('login', 'refresh');
+     }
    }
+   
+    function logout()
+ {
+   $this->session->unset_userdata('logged_in');
+   session_destroy();
+   redirect('login', 'refresh');
+ }
 /**
  *Método de controle para identificar se será feito uma exclusão ou
  *o carregamento dos dados para gerar uma edição.

@@ -9,10 +9,11 @@
 
 </head>
 <body>
-
+<h1 style="float: right; margin-right: 15px;"> <a href="agenda/logout">Sair</a></h1><br/><br/>
 <div id="container">
-	<h1><?=$titulo ?></h1>
-
+	<h1><?=$titulo." - Olá ".$login ?></h1>
+    
+    
 	<div id="body">
 <button onclick="novoContato()"> <?=$labelBotao ?></button>
 <br/><br/>

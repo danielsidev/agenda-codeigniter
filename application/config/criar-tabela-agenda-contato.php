@@ -17,6 +17,15 @@ create table if not exists agenda_contato
      celular varchar(20),
      email varchar(100)
     );
+  
+ create table usuario 
+   (
+    id int(25) not null auto_increment primary key,
+    login varchar(50)  not null,
+    senha varchar(100) not null
+   );
+   insert into usuario(login, senha) values('usuario', MD5('123456'));
+  
 */
 
 

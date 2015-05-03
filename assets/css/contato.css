@@ -75,7 +75,7 @@
 /****************** PÁGINA FORM-CONTATO ********************/
 
 
-    input[type="text"], input[type="email"], select{ 
+    input[type="text"], input[type="email"], input[type="password"], select{ 
         width: 20%;
         height: 30px;
         padding: 5px;
