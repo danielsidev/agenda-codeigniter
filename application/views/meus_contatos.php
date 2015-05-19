@@ -5,6 +5,7 @@
 	<title><?=$titulo ?></title>
 
     <link rel="stylesheet" type="text/css" href="<?=site_url()?>assets/css/contato.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="<?=site_url()?>assets/js/contato.js" type="text/javascript"></script>
 
 </head>
@@ -15,7 +16,7 @@
     
     
 	<div id="body">
-<button onclick="novoContato()"> <?=$labelBotao ?></button>
+<button onclick="addNovoContato()"> <?=$labelBotao ?></button>
 <br/><br/>
           <?php
           

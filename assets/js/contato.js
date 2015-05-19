@@ -6,7 +6,7 @@ var confirma = function(){
  }
 };
 
-var novoContato = function(){ 
+var addNovoContato = function(){ 
  window.location.href="agenda/novoContato";
  };
  
